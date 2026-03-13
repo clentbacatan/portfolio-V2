@@ -98,7 +98,7 @@ export default function FooterSection() {
         </blockquote>
 
         {/* CTA Button */}
-        <a href="https://api.leadconnectorhq.com/widget/bookings/book-with-clent" target="_blank" rel="noopener noreferrer" className="w-full md:w-auto flex justify-center">
+        <a href="/booking-calendar" target="_blank" rel="noopener noreferrer" className="w-full md:w-auto flex justify-center">
           <Button
             className="neon-btn mt-4 h-12 md:h-14 px-6 md:px-12 rounded-lg text-sm md:text-base font-semibold tracking-widest uppercase cursor-pointer gap-2 w-full md:w-auto"
             style={{

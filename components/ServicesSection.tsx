@@ -115,7 +115,7 @@ export default function ServicesSection() {
               follow-ups, integrating tools, and converting traffic into real revenue.
             </p>
 
-            <a href="https://api.leadconnectorhq.com/widget/bookings/book-with-clent" target="_blank" rel="noopener noreferrer" className="text-sm font-mono" style={{ color: "#f97316" }}>
+            <a href="/booking-calendar" target="_blank" rel="noopener noreferrer" className="text-sm font-mono" style={{ color: "#f97316" }}>
               → Let&apos;s build together.
             </a>
           </div>
