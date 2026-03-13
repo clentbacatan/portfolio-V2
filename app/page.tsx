@@ -1,4 +1,11 @@
 import { Bebas_Neue } from "next/font/google";
+import { Button } from "@/components/ui/button";
+import ToolsSection from "@/components/ToolsSection";
+import ProjectsSection from "@/components/ProjectsSection";
+import ServicesSection from "@/components/ServicesSection";
+import AboutSection from "@/components/AboutSection";
+import FooterSection from "@/components/FooterSection";
+import TypewriterText from "@/components/TypewriterText";
 
 const bebas = Bebas_Neue({
   weight: "400",
@@ -7,20 +14,27 @@ const bebas = Bebas_Neue({
 
 export default function Home() {
   return (
+    <>
     <main
-      className="relative min-h-screen overflow-hidden flex flex-col items-center justify-center text-center px-6"
+      className="relative md:min-h-screen overflow-hidden flex flex-col items-center justify-start md:justify-center text-center px-6 pt-24 pb-16 md:pt-0 md:pb-0"
       style={{ backgroundColor: "#06070d" }}
     >
-      {/* Grid background */}
+      {/* Background video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        style={{ opacity: 0.35 }}
+      >
+        <source src="/backgroundVideo.mp4" type="video/mp4" />
+      </video>
+
+      {/* Dark overlay to keep text readable */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(0, 180, 255, 0.04) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 180, 255, 0.04) 1px, transparent 1px)
-          `,
-          backgroundSize: "48px 48px",
-        }}
+        style={{ backgroundColor: "rgba(6,7,13,0.6)" }}
       />
 
       {/* Horizontal scanlines */}
@@ -41,42 +55,10 @@ export default function Home() {
         }}
       />
 
-      {/* Corner accent — top left */}
-      <div
-        className="absolute top-0 left-0 w-24 h-24 pointer-events-none"
-        style={{
-          borderTop: "1px solid rgba(0, 180, 255, 0.3)",
-          borderLeft: "1px solid rgba(0, 180, 255, 0.3)",
-        }}
-      />
-      {/* Corner accent — top right */}
-      <div
-        className="absolute top-0 right-0 w-24 h-24 pointer-events-none"
-        style={{
-          borderTop: "1px solid rgba(0, 180, 255, 0.3)",
-          borderRight: "1px solid rgba(0, 180, 255, 0.3)",
-        }}
-      />
-      {/* Corner accent — bottom left */}
-      <div
-        className="absolute bottom-0 left-0 w-24 h-24 pointer-events-none"
-        style={{
-          borderBottom: "1px solid rgba(0, 180, 255, 0.3)",
-          borderLeft: "1px solid rgba(0, 180, 255, 0.3)",
-        }}
-      />
-      {/* Corner accent — bottom right */}
-      <div
-        className="absolute bottom-0 right-0 w-24 h-24 pointer-events-none"
-        style={{
-          borderBottom: "1px solid rgba(0, 180, 255, 0.3)",
-          borderRight: "1px solid rgba(0, 180, 255, 0.3)",
-        }}
-      />
 
       {/* Badge */}
       <div
-        className="relative z-10 mb-10 inline-flex items-center gap-3 px-5 py-2 text-xs tracking-[0.25em] uppercase"
+        className="hero-badge relative z-10 mb-10 inline-flex items-center gap-3 px-5 py-2 uppercase mx-4 text-center"
         style={{
           border: "1px solid rgba(80, 200, 40, 0.4)",
           backgroundColor: "rgba(4, 14, 4, 0.9)",
@@ -86,43 +68,39 @@ export default function Home() {
         }}
       >
         <span
-          className="w-1.5 h-1.5 rounded-full"
+          className="hidden sm:inline-block w-1.5 h-1.5 rounded-full"
           style={{
             backgroundColor: "#6ddd10",
             boxShadow: "0 0 8px #6ddd10, 0 0 16px #6ddd10",
             animation: "pulse 1.8s ease-in-out infinite",
           }}
         />
-        [ AI AUTOMATION SPECIALIST | FUNNEL/WEB DEVELOPER ]
+        AI AUTOMATION SPECIALIST <span className="hidden sm:inline">|</span> FUNNEL/WEB DEVELOPER
       </div>
 
       {/* Headline */}
       <h1
-        className="relative z-10 leading-[0.95] text-white"
+        className="hero-headline relative z-10 text-white"
         style={{
           fontFamily: bebas.style.fontFamily,
-          fontSize: "clamp(52px, 9vw, 102px)",
-          letterSpacing: "0.03em",
           textShadow: "0 0 30px rgba(255,255,255,0.08)",
         }}
       >
         AI AUTOMATIONS & SMART FUNNELS
       </h1>
       <h1
-        className="relative z-10 leading-[0.95] glitch-orange"
+        className="hero-headline relative z-10 glitch-orange"
         style={{
           fontFamily: bebas.style.fontFamily,
-          fontSize: "clamp(52px, 9vw, 102px)",
-          letterSpacing: "0.03em",
         }}
       >
         THAT WORK FOR YOU.
       </h1>
 
       {/* Subtitle */}
-      <div className="relative z-10 mt-7 flex items-center justify-center gap-2 font-mono text-xl uppercase">
+      <div className="relative z-10 mt-7 flex items-start md:items-center justify-center gap-2 font-mono text-sm md:text-xl uppercase px-4 text-center">
         <span style={{ color: "#f97316" }}>▸</span>
-        <span className="typewriter" style={{ color: "#00b4e0" }}>STOP DROWNING IN MANUAL TASKS. START RUNNING ON AUTOPILOT.</span>
+        <TypewriterText text="STOP DROWNING IN MANUAL TASKS. START RUNNING ON AUTOPILOT." />
       </div>
 
       {/* Divider */}
@@ -133,13 +111,37 @@ export default function Home() {
 
       {/* Description */}
       <p
-        className="relative z-10 mt-5 max-w-xl text-sm leading-relaxed tracking-wide font-mono"
+        className="relative z-10 mt-5 max-w-xl text-xs sm:text-sm leading-relaxed tracking-wide font-mono"
         style={{ color: "rgba(150, 160, 175, 0.85)" }}
       >
         I build automation systems using n8n, Zapier, and AI tools, and create
         high-converting funnels with GoHighLevel to streamline operations and
         generate more leads.
       </p>
+
+      {/* CTA Buttons */}
+      <div className="relative z-10 mt-10 flex items-center gap-4">
+        <a href="#projects">
+          <Button
+            className="neon-btn h-13 px-8 rounded-lg text-base font-semibold tracking-wide cursor-pointer"
+            style={{
+              backgroundColor: "transparent",
+              color: "#f97316",
+              border: "1px solid #f97316",
+              boxShadow: "0 0 8px #f97316, 0 0 20px rgba(249,115,22,0.4), inset 0 0 8px rgba(249,115,22,0.1)",
+              textShadow: "0 0 8px rgba(249,115,22,0.8)",
+            }}
+          >
+            View My Work &nbsp;→
+          </Button>
+        </a>
+      </div>
     </main>
+    <ToolsSection />
+    <ProjectsSection />
+    <ServicesSection />
+    <AboutSection />
+    <FooterSection />
+</>
   );
 }

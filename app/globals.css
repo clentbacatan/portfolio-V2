@@ -47,25 +47,84 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@keyframes typing {
-  from { width: 0; }
-  to   { width: 58ch; }
+
+.hero-headline {
+  font-size: clamp(42px, 9vw, 110px);
+  letter-spacing: 0.03em;
+  line-height: 0.95;
 }
 
-@keyframes blink-cursor {
-  0%, 100% { border-right-color: #00b4e0; }
-  50%       { border-right-color: transparent; }
+.hero-badge {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-align: center;
 }
 
-.typewriter {
-  display: inline-block;
+@media (min-width: 640px) {
+  .hero-badge {
+    font-size: 0.875rem;
+    letter-spacing: 0.25em;
+  }
+}
+
+
+.neon-btn {
+  position: relative;
   overflow: hidden;
-  white-space: nowrap;
-  width: 0;
-  border-right: 2px solid #00b4e0;
-  animation:
-    typing 3s steps(58, end) 0.3s forwards,
-    blink-cursor 0.75s step-end infinite 3.3s;
+  transition: color 0.3s ease, box-shadow 0.3s ease, text-shadow 0.3s ease;
+}
+
+.neon-btn:hover {
+  color: #fff !important;
+  box-shadow:
+    inset 0 0 18px rgba(249, 115, 22, 0.8),
+    0 0 16px 4px rgba(249, 115, 22, 0.6),
+    0 0 40px rgba(249, 115, 22, 0.3) !important;
+  text-shadow: 0 0 10px rgba(249, 115, 22, 1);
+  border-color: #ff8c00 !important;
+}
+
+.neon-btn::before {
+  content: "";
+  position: absolute;
+  left: -4rem;
+  width: 3rem;
+  height: 100%;
+  top: 0;
+  transition: transform 0.6s ease-in-out;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(249, 115, 22, 0.5) 50%,
+    transparent 100%
+  );
+}
+
+.neon-btn:hover::before {
+  transform: translateX(60rem);
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.funnel-scroll::-webkit-scrollbar {
+  display: none;
+}
+.funnel-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.tool-card:hover {
+  border-color: rgba(249, 115, 22, 0.5) !important;
+  box-shadow: 0 0 14px rgba(249, 115, 22, 0.15);
 }
 
 .glitch-orange {
@@ -153,5 +212,6 @@
   }
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
   }
 }
