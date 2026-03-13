@@ -99,7 +99,7 @@ export default function AboutSection() {
 
           {/* CTA */}
           <div className="mt-2">
-            <a href="/cv.pdf" download>
+            <a href="https://drive.google.com/file/d/1MVsayqJ291n2Ftte6MjTneB2nq6B5Hwg/view?usp=sharing" target="_blank" rel="noopener noreferrer">
               <Button
                 className="neon-btn h-13 px-8 rounded-lg text-base font-semibold tracking-wide cursor-pointer gap-2"
                 style={{
